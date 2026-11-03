@@ -10,33 +10,46 @@
 </head>
 <body>
   <main class="app">
-    <header class="top">
-      <h1>Sudoku</h1>
-      <div class="stats">
-        <span id="timer" aria-label="Waktu">00:00</span>
-        <span class="dot">·</span>
-        <span id="mistakes">Salah: 0/3</span>
-      </div>
-    </header>
 
-    <nav class="levels" role="tablist" aria-label="Pilih tingkat kesulitan">
-      <button class="level active" data-level="easy" role="tab">Easy</button>
-      <button class="level" data-level="medium" role="tab">Medium</button>
-      <button class="level" data-level="hard" role="tab">Hard</button>
-    </nav>
-
-    <section class="board-wrap">
-      <div id="board" class="board" aria-label="Papan Sudoku"></div>
-      <div id="overlay" class="overlay hidden">
-        <div class="overlay-card">
-          <h2 id="overlay-title">Selamat!</h2>
-          <p id="overlay-text"></p>
-          <button id="overlay-btn" class="primary">Main lagi</button>
-        </div>
-      </div>
+    <!-- 1. Halaman awal: pilih tingkat kesulitan -->
+    <section id="screen-home" class="screen">
+      <header class="hero">
+        <h1>Sudoku</h1>
+        <p>Pilih tingkat kesulitan untuk mulai bermain.</p>
+      </header>
+      <div id="diff-list" class="diff-list"></div>
+      <button id="reset-progress" class="link">Reset progres</button>
     </section>
 
-    <section class="controls">
+    <!-- 2. Pilih level (10 level per tingkat) -->
+    <section id="screen-levels" class="screen hidden">
+      <header class="bar">
+        <button class="back" data-go="home">← Menu</button>
+        <h2 id="levels-title">Easy</h2>
+        <span id="levels-progress" class="muted">0/10</span>
+      </header>
+      <div id="level-grid" class="level-grid"></div>
+    </section>
+
+    <!-- 3. Layar permainan -->
+    <section id="screen-game" class="screen hidden">
+      <header class="bar">
+        <button class="back" data-go="levels">← Level</button>
+        <h2 id="game-title">Easy · Level 1</h2>
+        <span class="muted stats"><span id="timer">00:00</span> · <span id="mistakes">Salah 0/3</span></span>
+      </header>
+
+      <div class="board-wrap">
+        <div id="board" class="board" aria-label="Papan Sudoku"></div>
+        <div id="overlay" class="overlay hidden">
+          <div class="overlay-card">
+            <h3 id="overlay-title"></h3>
+            <p id="overlay-text"></p>
+            <div id="overlay-actions" class="overlay-actions"></div>
+          </div>
+        </div>
+      </div>
+
       <div class="actions">
         <button id="undo" class="action" title="Undo">↶<span>Undo</span></button>
         <button id="erase" class="action" title="Hapus">⌫<span>Hapus</span></button>
@@ -44,8 +57,9 @@
         <button id="hint" class="action" title="Petunjuk">💡<span>Petunjuk <b id="hint-count">3</b></span></button>
       </div>
       <div id="numpad" class="numpad"></div>
-      <button id="new-game" class="primary wide">Game baru</button>
+      <button id="restart" class="secondary wide">Ulangi level</button>
     </section>
+
   </main>
   <script src="script.js"></script>
 </body>

@@ -2,10 +2,16 @@
 
 Game Sudoku di browser dengan tiga tingkat kesulitan: **Easy**, **Medium**, dan **Hard**. Dibuat dengan HTML, CSS, dan JavaScript murni, tanpa library atau server.
 
+## Alur permainan
+
+1. Halaman awal menampilkan pilihan **Easy**, **Medium**, dan **Hard**.
+2. Setiap tingkat punya **10 level**. Level berikutnya terbuka setelah level sebelumnya selesai, dan setelah menang pemain langsung bisa lanjut ke level berikutnya.
+3. **Medium** terbuka setelah Easy level 10 selesai, dan **Hard** terbuka setelah Medium level 10 selesai.
+4. Progres dan waktu terbaik tersimpan di browser pemain, jadi tidak hilang saat halaman ditutup.
+
 ## Fitur
 
-- Puzzle baru dibuat acak setiap game, selalu dengan satu solusi yang pasti
-- Tiga level: Easy (38 kotak kosong), Medium (48), Hard (56)
+- Setiap level selalu punya puzzle yang sama dengan satu solusi pasti, dan makin sulit di level yang lebih tinggi
 - Penanda angka salah, maksimal 3 kesalahan
 - Mode catatan (pensil) untuk menulis kemungkinan angka
 - Undo, hapus, dan 3 petunjuk per game
